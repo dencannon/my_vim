@@ -32,7 +32,8 @@ call plug#begin('~/.vim/plugged')
   Plug 'maxmellon/vim-jsx-pretty'       " JSX/React
   Plug 'HerringtonDarkholme/yats.vim'   " TypeScript
   Plug 'elixir-editors/vim-elixir'      " Elixir
-  Plug 'preservim/nerdtree'		" NERDTree
+  Plug 'preservim/nerdtree'             " NERDTree
+  Plug 'tpope/vim-commentary'
   " C, JSON, YAML have decent built-in syntax; add YAML if desired:
   " Plug 'stephpy/vim-yaml'
 
@@ -42,6 +43,9 @@ call plug#begin('~/.vim/plugged')
 
   " --- Git signs in gutter (changes vs HEAD) ---
   Plug 'airblade/vim-gitgutter'
+
+  " --- Color schemes
+  Plug 'sjl/badwolf'       " Bad Wolf (тёмная)
 call plug#end()
 
 " 6) ripgrep as :grep backend (if installed)
@@ -76,9 +80,22 @@ nnoremap <leader>hp :GitGutterPreviewHunk<CR>
 nnoremap <leader>hs :GitGutterStageHunk<CR>
 nnoremap <leader>hu :GitGutterUndoHunk<CR>
 
+nnoremap <C-n> :NERDTreeToggle<CR>
+
+let NERDTreeQuitOnOpen=1
+let g:NERDTreeWinPos = "left"
+
 " 9) Better defaults (optional quality-of-life)
 set hidden
 set updatetime=300
 set signcolumn=yes
 
+set tabstop=4
+set shiftwidth=4
+set softtabstop=4
+set expandtab
+
+let macvim_skip_colorscheme = 1
+
+colorscheme badwolf
 " End of .vimrc
